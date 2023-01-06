@@ -86,3 +86,36 @@ var finances = [
 ['Jan-2017', 138230],
 ['Feb-2017', 671099]
 ];
+
+
+//Console log the title of the analysis
+
+console.log("Financial Analysis:");
+console.log("------------------------------");
+
+// The total number of months included in the data set, console as total months and the finances length
+
+console.log("Total months: " + finances.length); 
+
+// This shows 86 months in total
+
+// Create an array to include only numbers from finances
+
+var numbersOnly = []
+for (var i= 0; i < finances.length; i++) {
+    numbersOnly.push(finances[i][1]);
+}
+
+// You need to calculate the net total amount of Profit/Losses over the entire period.
+
+var sum = numbersOnly.reduce(function (a,b) { return a+b; }, 0); 
+
+//Log this to Console
+
+// * The average of the **changes** in Profit/Losses over the entire period.
+//   * You will need to track what the total change in profits are from month to month and then find the average.
+//   * (`Total/Number of months`)
+
+// * The greatest increase in profits (date and amount) over the entire period.
+
+// * The greatest decrease in losses (date and amount) over the entire period.
