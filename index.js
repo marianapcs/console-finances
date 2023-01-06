@@ -94,12 +94,14 @@ console.log("Financial Analysis:");
 console.log("------------------------------");
 
 // The total number of months included in the data set, console as total months and the finances length
+// i++ increase the value of i by 1
 
 console.log("Total months: " + finances.length); 
 
 // This shows 86 months in total
 
 // Create an array to include only numbers from finances
+// push adds one or more elements to the end of an array and returns the new length of the array
 
 var numbersOnly = []
 for (var i= 0; i < finances.length; i++) {
@@ -112,7 +114,18 @@ var sum = numbersOnly.reduce(function (a,b) { return a+b; }, 0);
 
 //Log this to Console
 
-// * The average of the **changes** in Profit/Losses over the entire period.
+console.log("Total: £" + sum); 
+
+// * The average of the **changes** in Profit/Losses over the entire period. 
+// You need a new array that consits of changes between months. So need to subtract each element
+
+var monthlyChanges = []
+for (var i = 0; i < numbersOnly.length -1; i++) {
+    monthlyChanges.push(numbersOnly[i+1] - numbersOnly[i])
+}
+   
+console.log (monthlyChanges) 
+
 //   * You will need to track what the total change in profits are from month to month and then find the average.
 //   * (`Total/Number of months`)
 
