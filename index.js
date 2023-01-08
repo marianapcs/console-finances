@@ -140,13 +140,37 @@ var sumOfMonthlyChange = monthlyChange.reduce (function (a, b) { return a+ b; } 
  let average = sumOfMonthlyChange / (monthlyChange.length);
  
  //console log this to show in the grid
+// need to have the result rounded to 2 decimal places because dealing with finances using number.toFixed (2)
+ console.log ("Average Change in Profits: £" + average.toFixed (2));
 
- console.log ("Average Change in Profits: £" + average);
 
 
 
 //   * (`Total/Number of months`)
 
 // * The greatest increase in profits (date and amount) over the entire period.
+// need two more variables for the greatest increase and month increase to show in console
+
+var increase = 0;
+var increaseMonth = 0;
+
+// i++ increase the value of i by 1
+
+var months = []
+for (var i = 1; i < finances.length; i++) {
+    months.push (finances[i][0]);
+}
+
+//need to create a for loop to find the biggest amount within the monthly change array 
+//if statement 
+
+for (var i = 1; i < finances.length; i++) {
+ if (monthlyChange [i] > increase) {
+    increase = monthlyChange[i]
+    increaseMonth = i;
+ } 
+}
+
+console.log( "Greatest Increase in Profits: " + months [increaseMonth] + " (£" + increase + ")"); 
 
 // * The greatest decrease in losses (date and amount) over the entire period.
