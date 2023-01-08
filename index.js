@@ -164,7 +164,7 @@ for (var i = 1; i < finances.length; i++) {
 //need to create a for loop to find the biggest amount within the monthly change array 
 //if statement 
 
-for (var i = 1; i < finances.length; i++) {
+for (var i = 1; i < monthlyChange.length; i++) {
  if (monthlyChange [i] > increase) {
     increase = monthlyChange[i]
     increaseMonth = i;
@@ -174,3 +174,19 @@ for (var i = 1; i < finances.length; i++) {
 console.log( "Greatest Increase in Profits: " + months [increaseMonth] + " (£" + increase + ")"); 
 
 // * The greatest decrease in losses (date and amount) over the entire period.
+
+// Repeat the process for the greatest decrease in profits
+
+var decrease = 0;
+var decreaseMonth = 0;
+
+// i++ increase the value of i by 1
+
+for (var i = 0; i < monthlyChange.length; i++) {
+ if (monthlyChange [i] < decrease) {
+    decrease = monthlyChange[i]
+    decreaseMonth = i;
+ } 
+}
+
+console.log( "Greatest Decrease in Profits: " + months [decreaseMonth] + " (£" + decrease + ")"); 
