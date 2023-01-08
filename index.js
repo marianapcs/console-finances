@@ -119,14 +119,32 @@ console.log("Total: £" + sum);
 // * The average of the **changes** in Profit/Losses over the entire period. 
 // You need a new array that consits of changes between months. So need to subtract each element
 
-var monthlyChanges = []
+var monthlyChange = []
 for (var i = 0; i < numbersOnly.length -1; i++) {
-    monthlyChanges.push(numbersOnly[i+1] - numbersOnly[i])
+    monthlyChange.push(numbersOnly[i+1] - numbersOnly[i])
 }
    
-console.log (monthlyChanges) 
+// console.log (monthlyChanges) 
 
 //   * You will need to track what the total change in profits are from month to month and then find the average.
+
+// Track what the monthly changes are by adding them together
+// use reduce - this reduces the array to a single value and executes a provided function for each value of the array (from L-R) and the return value of the function is stored in an accumulator
+// Usethe sort method it needs to know the relation between each two elements in order to sort them
+
+var sumOfMonthlyChange = monthlyChange.reduce (function (a, b) { return a+ b; } , 0 ); 
+ // console.log(sumOfMonthlyChange) shows -196785
+
+ //find average using let (variables defined with this cannot be redeclared and have block scope) you need to divide the previous result with the elements from the array
+
+ let average = sumOfMonthlyChange / (monthlyChange.length);
+ 
+ //console log this to show in the grid
+
+ console.log ("Average Change in Profits: £" + average);
+
+
+
 //   * (`Total/Number of months`)
 
 // * The greatest increase in profits (date and amount) over the entire period.
